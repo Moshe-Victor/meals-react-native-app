@@ -5,49 +5,17 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealDetailsScreen from "./screens/MealDetailsScreen";
-
-const Stack = createStackNavigator();
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import FavoritesScreen from "./screens/FavoritesScreen";
+import { Ionicons } from "@expo/vector-icons";
+import StackNavigator from "./navigation/StackNavigator";
 
 export default function App() {
   return (
     <>
       <StatusBar style="light"></StatusBar>
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: { backgroundColor: "#351401" },
-            headerTintColor: "white",
-            contentStyle: { backgroundColor: "#3f2f25" },
-          }}
-        >
-          <Stack.Screen
-            name="MealsCategories"
-            component={CategoriesScreen}
-            options={{
-              title: "All Categories",
-            }}
-          />
-          <Stack.Screen
-            name="MealsOverview"
-            component={MealsOverviewScreen}
-            // options={({route, navigation}) => {
-            //     const catId = route.params.categoryId;
-            //     return {
-            //       title: catId,
-            // };
-            // }}
-          />
-          <Stack.Screen
-            name="MealDetails"
-            component={MealDetailsScreen}
-            options={{
-              title: "Meal Detail",
-              // headerRight: () => {
-              //   return <Button title="Tap me" />;
-              // },
-            }}
-          />
-        </Stack.Navigator>
+        <StackNavigator />
       </NavigationContainer>
     </>
   );
